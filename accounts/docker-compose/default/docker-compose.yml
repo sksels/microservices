@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   configserver:
-    image: docguru123/microservices:configs
+    image: docguru123/configserver:latest
     mem_limit: 700m
     ports:
       - "8071:8071"
@@ -11,7 +11,7 @@ services:
      - eazybank
       
   accounts:
-    image: docguru123/microservices:accounts
+    image: docguru123/accounts:latest
     mem_limit: 700m
     ports:
       - "8080:8080"
@@ -30,7 +30,7 @@ services:
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
   
   loans:
-    image: docguru123/microservices:loans
+    image: docguru123/loans:latest
     mem_limit: 700m
     ports:
       - "8090:8090"
