@@ -9,12 +9,12 @@ services:
       - "8071:8071"
     networks:
      - eazybank
-      
-  accounts:
-    image: docguru123/accounts:latest
+     
+  loans:
+    image: docguru123/loans:latest
     mem_limit: 700m
     ports:
-      - "8080:8080"
+      - "8090:8090"
     networks:
       - eazybank
     depends_on:
@@ -28,12 +28,12 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
-  
-  loans:
-    image: docguru123/loans:latest
+      
+  accounts:
+    image: docguru123/accounts:latest
     mem_limit: 700m
     ports:
-      - "8090:8090"
+      - "8080:8080"
     networks:
       - eazybank
     depends_on:
